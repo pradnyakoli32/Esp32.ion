@@ -1,12 +1,22 @@
-# Esp32.ion
-
-
 #include <ArduinoJson.h> //ArduinoJson V6
 #include <EEPROM.h>
 #include <BLEDevice.h>
 #include <BLEServer.h>
 #include <BLEUtils.h>
-#include <BLE2902.h>   m3.
+#include <BLE2902.h>
+
+// Count of each message sent over BLE
+int incomingMsgId = 0;
+// unique id for this ble device
+int senderId = 1234;
+// Data that is sent out of esp32
+String payload = "Hello World !";
+
+
+//EEPROM vector address for device password
+int devicePasswordVectorAddress = 469;
+
+//password
 String password = "hello";
 String receivedPassword = "";
 
